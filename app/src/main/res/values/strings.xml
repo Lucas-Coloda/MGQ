@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">MangaQ</string>
+    <string name="registrar">Registrar</string>
+    <string name="criar_conta">Cadastrar</string>
+    <string name="cancelar">Cancelar</string>
+    <string name="logout">Logout</string>
+    <string name="digite_seu_sobrenome">Digite seu sobrenome</string>
+    <string name="sobrenome">Sobrenome</string>
+    <string name="nome">Nome</string>
+    <string name="nick">Nick</string>
+    <string name="digite_sua_apelido">Digite sua apelido</string>
+    <string name="email">Email</string>
+    <string name="digite_seu_email">Digite seu email</string>
+    <string name="digite_sua_senha">Digite sua senha</string>
+    <string name="senha">Senha</string>
+    <string name="digite_nome">Digite seu nome</string>
+    <string name="mang_q">MangáQ</string>
+</resources>
