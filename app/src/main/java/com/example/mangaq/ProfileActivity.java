@@ -17,6 +17,7 @@ import com.example.mangaq.database.AppDatabase;
 public class ProfileActivity extends AppCompatActivity {
     private SharedPreferences preferences;
     private AppDatabase db;
+    private Usuario user;
     private ImageView btnLogout;
     private TextView name, lastname, nick, email;
 
@@ -47,18 +48,16 @@ public class ProfileActivity extends AppCompatActivity {
 
         loadUserInformations();
     }
+
     private void loadUserInformations() {
-        long user_id = preferences.getLong("id",1);
-        Usuario user = db.usuarioDAO().getUserById(user_id);
+        long user_id = preferences.getLong("id", 1);
+        this.user = db.usuarioDAO().getUserById(user_id);
         name.setText(user.getNome());
         lastname.setText(user.getSobrenome());
         nick.setText(user.getNick());
         email.setText(user.getLogin());
-        System.out.println(user.getNome());
-        System.out.println(user.getSobrenome());
-        System.out.println(user.getNick());
-        System.out.println(user.getLogin());
     }
+
     private void logout() {
         SharedPreferences.Editor editor = preferences.edit();
         editor.clear();
@@ -74,6 +73,13 @@ public class ProfileActivity extends AppCompatActivity {
 
     public void voltar(View view) {
         Intent intent = new Intent(ProfileActivity.this, MainMenuActivity.class);
+        startActivity(intent);
+        finish();
+    }
+
+    public void editProfile(View view) {
+        Intent intent = new Intent(ProfileActivity.this, EditProfileActivity.class);
+        intent.putExtra("userId", user.getID());
         startActivity(intent);
         finish();
     }
