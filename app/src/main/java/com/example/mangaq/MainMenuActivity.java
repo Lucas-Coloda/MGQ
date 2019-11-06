@@ -11,48 +11,45 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 
+import com.example.mangaq.Model.Usuario;
 import com.example.mangaq.database.AppDatabase;
 
 public class MainMenuActivity extends AppCompatActivity {
     private SharedPreferences preferences;
     private AppDatabase db;
-    private ImageView btnLogout;
+    private Button btnProfile;
+    private Usuario usuario;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_menu);
+
+        // Preload configurations
         this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
-
-
-        btnLogout = findViewById(R.id.btn_logout);
-
         db = AppDatabase.getDatabase(getApplicationContext());
-
         preferences = getSharedPreferences("appPreference", Context.MODE_PRIVATE);
 
-        btnLogout.setOnClickListener(new View.OnClickListener() {
+        // Get objects from view xml
+        btnProfile = findViewById(R.id.btn_profile);
+
+        // Activate interaction functions
+        btnProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                logout();
+                goToProfile();
             }
         });
     }
 
-    private void logout() {
-        SharedPreferences.Editor editor = preferences.edit();
-        editor.clear();
-        editor.commit();
-        loadLogin();
-    }
-
-    private void loadLogin() {
-        Intent intent = new Intent(MainMenuActivity.this, MainActivity.class);
+    private void goToProfile() {
+        Intent intent = new Intent(MainMenuActivity.this, ProfileActivity.class);
         startActivity(intent);
+        finish();
     }
 
     public void lerHistoria(View view) {
-        Intent logar = new Intent(MainMenuActivity.this, LeituraActivity.class);
-        startActivity(logar);
+        Intent ler = new Intent(MainMenuActivity.this, LeituraActivity.class);
+        startActivity(ler);
     }
 }

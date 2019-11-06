@@ -15,4 +15,7 @@
     <string name="senha">Senha</string>
     <string name="digite_nome">Digite seu nome</string>
     <string name="mang_q">MangáQ</string>
+    <string name="perfil">Perfil</string>
+    <string name="voltar">voltar</string>
+    <string name="editar_perfil">Editar perfil</string>
 </resources>

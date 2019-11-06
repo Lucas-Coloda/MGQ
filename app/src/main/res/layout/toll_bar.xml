@@ -14,19 +14,20 @@
         android:orientation="horizontal">
 
         <TextView
-            android:layout_width="330sp"
+            android:layout_width="320sp"
             android:layout_height="wrap_content"
             android:paddingLeft="30dp"
             android:text="@string/mang_q"
             android:textColor="#FFFFFF"
             android:textSize="30sp" />
 
-        <ImageView
-            android:id="@+id/btn_logout"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:onClick="logout"
-            android:src="@mipmap/asd"/>
+        <Button
+            android:id="@+id/btn_profile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#FF454E"
+            android:text="Q"
+            android:textSize="30sp" />
     </LinearLayout>
 
 </androidx.appcompat.widget.Toolbar>

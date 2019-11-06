@@ -14,7 +14,7 @@ import com.example.mangaq.Model.Usuario;
 import com.example.mangaq.database.AppDatabase;
 
 public class RegisterActivity extends AppCompatActivity {
-    private EditText editNome, editLogin, editSenha;
+    private EditText editNome, editLogin, editNick, editSbrenome, editSenha;
     private Button btnCadastrar;
     private AppDatabase db;
 
@@ -25,6 +25,8 @@ public class RegisterActivity extends AppCompatActivity {
         this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
         editNome = findViewById(R.id.edit_nome);
+        editSbrenome = findViewById(R.id.edit_sobrenome);
+        editNick = findViewById(R.id.edit_nick);
         editLogin = findViewById(R.id.edit_email);
         editSenha = findViewById(R.id.edit_senha);
         btnCadastrar = findViewById(R.id.btn_cadastrar);
@@ -40,10 +42,12 @@ public class RegisterActivity extends AppCompatActivity {
     }
 
     private void cadastrar() {
-        String nome, login, senha1;
+        String nome, login, senha, sobrenome, nick;
         nome = editNome.getText().toString().trim();
         login = editLogin.getText().toString().trim();
-        senha1 = editSenha.getText().toString().trim();
+        senha = editSenha.getText().toString().trim();
+        sobrenome = editSbrenome.getText().toString().trim();
+        nick = editNick.getText().toString().trim();
 
         if(nome.isEmpty()){
             editNome.setError("Campo Obrigatório");
@@ -55,13 +59,23 @@ public class RegisterActivity extends AppCompatActivity {
             editLogin.requestFocus();
             return;
         }
-        if(senha1.isEmpty()){
+        if(senha.isEmpty()){
+            editSenha.setError("Campo Obrigatório");
+            editSenha.requestFocus();
+            return;
+        }
+        if(nick.isEmpty()){
+            editSenha.setError("Campo Obrigatório");
+            editSenha.requestFocus();
+            return;
+        }
+        if(sobrenome.isEmpty()){
             editSenha.setError("Campo Obrigatório");
             editSenha.requestFocus();
             return;
         }
 
-        Usuario user = new Usuario(nome,login,senha1);
+        Usuario user = new Usuario(nome,login,senha, nick, sobrenome);
 
         long ID = db.usuarioDAO().insert(user);
 

@@ -51,6 +51,7 @@
             android:textSize="19sp" />
 
         <EditText
+            android:id="@+id/edit_sobrenome"
             android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:hint="@string/digite_seu_sobrenome"
@@ -71,6 +72,7 @@
             android:textSize="20sp" />
 
         <EditText
+            android:id="@+id/edit_nick"
             android:layout_width="240dp"
             android:layout_height="wrap_content"
             android:hint="@string/digite_sua_apelido"

@@ -23,10 +23,12 @@ public class Usuario {
     public Usuario() {
     }
 
-    public Usuario(String nome, String login, String senha) {
+    public Usuario(String nome, String login, String senha, String sobrenome, String nick) {
         this.nome = nome;
         this.login = login;
         this.senha = senha;
+        this.sobrenome = sobrenome;
+        this.nick = nick;
     }
 
     public long getID() {
