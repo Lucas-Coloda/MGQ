@@ -1,9 +1,71 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".LeituraActivity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <ListView
+                android:id="@+id/historyViewList"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="50dp"
+                android:orientation="horizontal">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnEscolha1"
+                    style="@style/Widget.AppCompat.Button.Borderless"
+                    android:layout_width="280dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:onClick="renderNextChoice"
+                    android:tag="1"
+                    android:text="@string/escolha_n_o_carregada"
+                    android:textColor="#03A9F4"
+                    android:textSize="15sp"
+                    app:backgroundTint="#00FFFFFF"
+                    app:cornerRadius="8dp"
+                    app:rippleColor="#33AAAAAA"
+                    app:strokeColor="#03A9F4"
+                    app:strokeWidth="2dp" />
+
+                <Space
+                    android:layout_width="20dp"
+                    android:layout_height="wrap_content" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnEscolha2"
+                    style="@style/Widget.AppCompat.Button.Borderless"
+                    android:layout_width="280dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:onClick="renderNextChoice"
+                    android:tag="2"
+                    android:text="@string/escolha_n_o_carregada"
+                    android:textColor="#4CAF50"
+                    android:textSize="15sp"
+                    app:backgroundTint="#00FFFFFF"
+                    app:cornerRadius="8dp"
+                    app:rippleColor="#33AAAAAA"
+                    app:strokeColor="#4CAF50"
+                    app:strokeWidth="2dp" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>
